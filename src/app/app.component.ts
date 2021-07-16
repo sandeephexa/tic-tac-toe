@@ -15,10 +15,8 @@ export class AppComponent {
   constructor(private toastr: ToastrService) {}
 
   handleClick(itemNumber: number) {
-    if (this.winMessage) {
-      alert('won')
-      return this.toastr.success(this.winMessage)
-    }
+    console.log('click')
+
     if (this.itemArray[itemNumber] === 'empty') {
       this.itemArray[itemNumber] = this.isCross ? 'cross' : 'circle'
 
@@ -79,6 +77,9 @@ export class AppComponent {
       this.itemArray[4] === this.itemArray[6]
     ) {
       this.winMessage = `${this.itemArray[2]} won`
+    }
+    if (this.winMessage) {
+      return this.toastr.success(this.winMessage)
     }
   }
 
